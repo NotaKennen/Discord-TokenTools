@@ -14,8 +14,7 @@ savetokens = True # If it finds a token, then saves it
 
 dont_limit_cpu = False # MAY CRASH YOUR COMPUTER IF YOU SET THIS TO TRUE
 
-specificchannel = False # Set to true if you want to specify a channel id
-channel_id = None # If specificchannel is true, this is the channel id. Leave to None if you don't want it
+specificchannel = False # Set to true if you want to specify a channel id. If you want to use it, replace False with the string of the ID
 
 ##########################
 
@@ -81,6 +80,6 @@ if dont_limit_cpu == False:
     limit_cpu()
 
 for token in brute(67, 75, True, True, True, True, False): #Generally the token is around 70 characters long
-    status = request(token, message)
+    status = request(token, message, specificchannel, savetokens)
 
 print("EVERYTHING IS DONE")
