@@ -20,10 +20,10 @@ specificchannel = False # Set to true if you want to specify a channel id. If yo
 
 def request(token, message, specificchannel, savetokens):
     if specificchannel == None:
-        url = f"https://discord.com/api/channels/{channel_id}/messages"
         savetoken = False
         for i in range(100000000000000000,99999999999999999999):
             channel_id = i
+            url = f"https://discord.com/api/channels/{channel_id}/messages"
 
             headers = {"Authorization": token}
             payload = {"content": message}
@@ -37,10 +37,9 @@ def request(token, message, specificchannel, savetokens):
             print(f"Found a token: {token}")
         return response.status_code
     else:
+        channel_id = specificchannel
         url = f"https://discord.com/api/channels/{channel_id}/messages"
         savetoken = False
-
-        channel_id = specificchannel
 
         headers = {"Authorization": token}
         payload = {"content": message}
