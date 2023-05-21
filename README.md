@@ -1,3 +1,11 @@
-A discord mass-advertiser. Bruteforces tokens and sends messages via them to channels. 
+Tools to mess around with tokens in Discord. 
 
-THIS IS FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY. DO NOT USE IT TO BRUTEFORCE TOKENS ETC AND DON'T ACTUALLY USE IT TO MASS-ADVERTISE.
+Includes:
+  Token bruteforcer and/or Mass advertiser
+  Message "nuker"
+  
+WIP and upcoming features:
+  Bot server nuker
+  Server nuker / Full nuker, not just messages
+  
+Please do not use these tools for anything but research and study, they're entirely made for educational purposes only.
